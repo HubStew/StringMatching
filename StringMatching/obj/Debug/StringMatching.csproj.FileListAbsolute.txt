@@ -1,0 +1,6 @@
+c:\users\leeeuiri\documents\visual studio 2013\Projects\StringMatching\StringMatching\bin\Debug\StringMatching.exe.config
+c:\users\leeeuiri\documents\visual studio 2013\Projects\StringMatching\StringMatching\bin\Debug\StringMatching.exe
+c:\users\leeeuiri\documents\visual studio 2013\Projects\StringMatching\StringMatching\bin\Debug\StringMatching.pdb
+c:\users\leeeuiri\documents\visual studio 2013\Projects\StringMatching\StringMatching\obj\Debug\StringMatching.csprojResolveAssemblyReference.cache
+c:\users\leeeuiri\documents\visual studio 2013\Projects\StringMatching\StringMatching\obj\Debug\StringMatching.exe
+c:\users\leeeuiri\documents\visual studio 2013\Projects\StringMatching\StringMatching\obj\Debug\StringMatching.pdb
