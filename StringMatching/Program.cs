@@ -74,7 +74,7 @@ namespace StringMathcing
                 {
                     break;
                 }
-                //Console.Write(matchPos + " " );
+                Console.Write(matchPos + " " );
                 matchCount++;
             }
 
