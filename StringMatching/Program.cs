@@ -14,9 +14,13 @@ namespace StringMathcing
             string path = @"c:\해리포터와 죽음의 성물.txt";
             string textValue = System.IO.File.ReadAllText(path, Encoding.Default);
 
+            string input;
 
-            SimpleStringMatch(textValue, "해리");
-            StlStringMatch(textValue, "해리");
+            Console.Write("검색할 문자열 입력 : ");
+            input = Console.ReadLine();
+            SimpleStringMatch(textValue, input);
+            StlStringMatch(textValue, input);
+
 
         }
 
@@ -74,7 +78,7 @@ namespace StringMathcing
                 {
                     break;
                 }
-                Console.Write(matchPos + " " );
+                //Console.Write(matchPos + " " );
                 matchCount++;
             }
 
