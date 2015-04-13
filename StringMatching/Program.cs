@@ -11,6 +11,12 @@ namespace StringMathcing
     {
         static void Main(string[] args)
         {
+            SearchProcess();
+
+        }
+
+        static private void SearchProcess()
+        {
             string path = @"c:\해리포터와 죽음의 성물.txt";
             string textValue = System.IO.File.ReadAllText(path, Encoding.Default);
 
@@ -18,9 +24,10 @@ namespace StringMathcing
 
             Console.Write("검색할 문자열 입력 : ");
             input = Console.ReadLine();
+
             SimpleStringMatch(textValue, input);
             StlStringMatch(textValue, input);
-
+            KMPAlgorithm(textValue, input);
 
         }
 
@@ -62,7 +69,6 @@ namespace StringMathcing
             sw.Stop();
             Console.WriteLine(sw.ElapsedMilliseconds.ToString() + "ms   " + matchCount.ToString() + "번");
         }
-
         static void StlStringMatch(string content, string pattern)
         {
             int matchPos = 0;
@@ -85,5 +91,62 @@ namespace StringMathcing
             sw.Stop();
             Console.WriteLine(sw.ElapsedMilliseconds.ToString() + "ms   " + matchCount.ToString() + "번");
         }
+    
+        static void KMPAlgorithm(string content, string pattern)
+        {
+            int[] failArr = new int[pattern.Length + 1];
+
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+
+            KMPFindFail(pattern.Length, pattern, failArr);
+
+            int i = 0;
+            int j = 0;
+
+            int matchCount = 0;
+
+            while (i < content.Length)
+            {
+                if (j == -1 || content[i] == pattern[j])
+                {
+                    i++;
+                    j++;
+                }
+                else
+                    j = failArr[j];
+
+                if (j == pattern.Length)
+                {
+                    matchCount++;
+                    j = failArr[j];
+                }
+
+               
+            }
+            Console.WriteLine(sw.ElapsedMilliseconds.ToString() + "ms   " + matchCount + "번");
+        }
+
+        static void KMPFindFail(int size, string pattern, params int[] failArr)
+        {
+            int i = 0;
+            int j = -1;
+
+            failArr[0] = -1;
+
+            while(i < size)
+            {
+                if (j == -1 || pattern[i] == pattern[j])
+                {
+                    i++;
+                    j++;
+                    failArr[i] = j;
+                }
+                else
+                    j = failArr[j];
+            }
+        }
+
+
     }
 }
